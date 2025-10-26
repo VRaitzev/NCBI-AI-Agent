@@ -180,4 +180,9 @@ ncbi-research-agent/
 - Anti-hallucination — только факты из абстрактов  
 - PMID citations — каждая ссылка на статью  
 - Experimental evidence — приоритет экспериментальным данным  
-- Precision focus — конкретные позиции и изменения  
+- Precision focus — конкретные позиции и изменения
+
+  ## 🙏 Acknowledgments
+
+- MCP server components are modified from [hamzameer/ncbi-mcp-server](https://github.com/hamzameer/ncbi-mcp-server)
+- Uses the [Model Context Protocol](https://github.com/modelcontextprotocol) for tool integration
