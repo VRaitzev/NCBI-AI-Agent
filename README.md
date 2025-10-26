@@ -182,7 +182,7 @@ ncbi-research-agent/
 - Experimental evidence — приоритет экспериментальным данным  
 - Precision focus — конкретные позиции и изменения
 
-  ## 🙏 Acknowledgments
+## 🙏 Благодарности
 
-- MCP server components are modified from [hamzameer/ncbi-mcp-server](https://github.com/hamzameer/ncbi-mcp-server)
-- Uses the [Model Context Protocol](https://github.com/modelcontextprotocol) for tool integration
+- Компоненты MCP сервера модифицированы на основе [hamzameer/ncbi-mcp-server](https://github.com/hamzameer/ncbi-mcp-server)
+- Использует [Model Context Protocol](https://github.com/modelcontextprotocol) для интеграции инструментов
