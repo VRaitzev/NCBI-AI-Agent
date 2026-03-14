@@ -7,182 +7,154 @@
 ![AI](https://img.shields.io/badge/AI-Agent-orange.svg)
 ![NCBI](https://img.shields.io/badge/NCBI-API-lightblue.svg)
 
-**Автоматизированная система для комплексного анализа генов и белков с интеграцией PubMed**
+**An autonomous system for comprehensive gene/protein analysis with intelligent PubMed integration.**
 
-*Интеллектуальный агент для биоинформатических исследований и анализа молекулярных данных*
+*Advanced AI Agent for bioinformatics research and molecular data synthesis.*
 
 </div>
 
-## 🎯 О чем этот проект?
+## 🎯 Project Overview
 
-Это мощная система для автоматического сбора и анализа данных о генах и белках из NCBI с интеллектуальным поиском в PubMed. Проект создан для исследователей, которые хотят быстро получать структурированную информацию о молекулярных мишенях.
+This is a high-performance system designed for automated data retrieval and analysis of genes and proteins from NCBI, featuring intelligent, agentic search capabilities within PubMed. Built for researchers who require rapid, structured insights into molecular targets.
 
-### ✨ Почему это круто?
+### ✨ Key Advantages
 
-- 🧠 **Интеллектуальный агент** — использует LLM для анализа и суммаризации данных  
-- 🔍 **Глубокий парсинг** — извлекает ВСЕ поля из XML NCBI  
-- 📚 **Умный PubMed поиск** — адаптивный поиск с анти-галлюцинационными правилами  
-- 🛡️ **Error-resilient** — устойчив к ошибкам и ограничениям API  
-- 🎯 **Targeted analysis** — фокус на модификациях белков и старении  
+- 🧠 **Agentic Reasoning** — Orchestrates LLMs to analyze and summarize multi-modal biological data.
+- 🔍 **Deep Parsing** — Comprehensive extraction of 100+ XML fields from NCBI databases.
+- 📚 **Intelligent PubMed Retrieval** — Adaptive search strategies with strict anti-hallucination protocols.
+- 🛡️ **Error-Resilient Architecture** — Built-in handling for API rate limits and data inconsistencies.
+- 🎯 **Domain-Specific Analysis** — Specialized focus on post-translational modifications (PTMs) and aging biology.
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Предварительные требования
+### Prerequisites
 
 ```bash
 Python 3.8+
-NCBI API ключ
-Nebius AI API ключ (или другая LLM)
+NCBI API Key
+Nebius AI API Key (or other compatible LLM provider)
 ```
 
-### Установка
+### Installation
 
-Клонируйте репозиторий:
+1. **Clone the repository:**
 ```bash
-git clone https://github.com/your-username/ncbi-research-agent.git
+git clone [https://github.com/your-username/ncbi-research-agent.git](https://github.com/your-username/ncbi-research-agent.git)
 cd ncbi-research-agent
 ```
 
-Установите зависимости:
+2. **Install dependencies:**
 ```bash
 pip install smolagents requests xmltodict
 ```
 
-Настройте API ключи:
+3. **Configure API Keys:**
 ```bash
-# Создайте файлы с ключами
+# Create key files
 echo "your_nebius_api_key" > secret.txt
 echo "your_ncbi_api_key" > NCBI_API_KEY.txt
 ```
 
-Запустите анализ гена:
+4. **Run Analysis:**
 ```python
 from ncbi_agent import final_process
 
-# Запустите полный анализ для NRF2
+# Execute full pipeline for NRF2
 final_process("NRF2")
 ```
 
-## 🛠️ Архитектура системы
+## 🛠️ System Architecture
 
-### Основные модули
+### Core Modules
 
 #### 🧬 Gene Parser (`extract_ALL_fields_gene`)
-- Полный парсинг XML NCBI — 100+ полей  
-- Извлечение комментариев — pathways, phenotypes, functions  
-- Геномные координаты — точная локализация генов  
-- Внешние базы данных — интеграция с внешними ресурсами  
+- **Full XML Parsing:** Handles 100+ fields from NCBI Gene.
+- **Comment Extraction:** Captures pathways, phenotypes, and functional annotations.
+- **Genomic Coordinates:** Precise localization of gene loci.
+- **Cross-Database Integration:** Linkage to external bio-resources.
 
 #### 🧫 Protein Analyzer (`parse_protein_all_fields`)
-- Анализ FEATURES — домены, сайты, модификации  
-- PTM detection — фосфорилирование, метилирование  
-- Sequence extraction — работа с белковыми последовательностями  
-- Reference parsing — извлечение публикаций  
+- **Feature Analysis:** Domains, sites, and structural motifs.
+- **PTM Detection:** Specialized parsing for phosphorylation, methylation, and more.
+- **Sequence Extraction:** Retrieval of protein primary structures.
+- **Reference Parsing:** Automated extraction of cited publications.
 
 #### 🔍 PubMed Intelligence (`run_super_agent`)
-- Адаптивный поиск — умные query на основе структурных данных  
-- Anti-hallucination — строгие правила против выдумывания  
-- Итеративный подход — multiple search iterations  
-- Aggressive mode — креативные стратегии при малом количестве результатов  
+- **Adaptive Querying:** Generates smart queries based on structural data insights.
+- **Anti-Hallucination Policy:** Strict grounding rules to prevent model fabrications.
+- **Iterative Refinement:** Multiple search cycles for maximum coverage.
+- **Aggressive Discovery Mode:** Creative strategies for low-yield search targets.
 
 #### 🧠 AI Summarization (`summarize_ALL_fields_*`)
-- Структурированная суммаризация — четкие разделы  
-- Fact-only policy — только проверенные данные  
-- Token optimization — эффективное использование контекста  
+- **Structured Synthesis:** Organized sections with clear hierarchies.
+- **Fact-Only Policy:** Exclusively data-driven insights.
+- **Context Optimization:** Efficient token management for long-context windows.
 
-## 📊 Пример использования
+## 📊 Usage Example
 
 ```python
-# Полный пайплайн анализа
+# Full analysis pipeline
 result = final_process("SOX2")
 
-# Или поэтапно:
-gene_data = process_gene("6657")  # SOX2 gene ID
-protein_data = process_protein("NP_003097.1")  # SOX2 protein
+# Component-level execution:
+gene_data = process_gene("6657")      # SOX2 gene ID
+protein_data = process_protein("NP_003097.1") # SOX2 protein accession
 ```
 
-**Результат:**
-- 📄 `gene_protein_report.txt` — структурированный отчет  
-- 📚 `pubmed_raw_data.txt` — сырые данные PubMed  
-- 🎯 Статистика по найденным статьям и белкам  
+**Output Artifacts:**
+- 📄 `gene_protein_report.txt` — Structured analytical report.
+- 📚 `pubmed_raw_data.txt` — Raw PubMed metadata.
+- 🎯 Statistics on retrieved publications and identified features.
 
-## 🎯 Ключевые возможности
+## 🔧 Technology Stack
 
-### 🧬 Генетический анализ
-- Автоматическое определение gene ID по символу  
-- Извлечение полной геномной информации  
-- Анализ альтернативных транскриптов  
-- Идентификация канонических белков  
+```text
+Core AI:
+├── smolagents — Tool-calling agentic framework
+├── requests — NCBI API communication layer
+├── xml.etree — Data structure parsing
+├── OpenAIServerModel — LLM integration (Nebius)
+└── MCP Protocol — Tool integration layer
 
-### 🧫 Протеомный анализ
-- Детекция функциональных доменов  
-- Выявление пост-трансляционных модификаций  
-- Анализ белковых особенностей  
-- Интеграция с базами данных  
-
-### 📚 Научный поиск
-- Таргетированный поиск в PubMed  
-- Анализ экспериментальных данных  
-- Выявление конкретных мутаций  
-- Связь с процессами старения  
-
-### 🧠 ИИ-интеллект
-- Умная суммаризация сложных данных  
-- Адаптивные стратегии поиска  
-- Структурирование информации  
-- Минимизация галлюцинаций  
-
-## 🔧 Технологический стек
-
-```python
-Core:
-├── smolagents — AI агент с вызовом инструментов
-├── requests — HTTP запросы к NCBI API  
-├── xml.etree — парсинг XML данных
-├── OpenAIServerModel — LLM интеграция
-└── MCP protocol — инструменты агента
-
-NCBI Integration:
-├── E-utils API — основной доступ к данным
-├── Gene database — генная информация
-├── Protein database — белковые данные
-├── PubMed — научные публикации
-└── Nucleotide — последовательности
+Bio-Integration:
+├── E-utils API — Primary data access point
+├── Gene DB — Genomic information
+├── Protein DB — Proteomic data
+├── PubMed — Literature mining
+└── Nucleotide — Sequence retrieval
 ```
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```text
 ncbi-research-agent/
-├── ncbi_agent.py              # Основной агент
-├── secret.txt                 # API ключи
-├── NCBI_API_KEY.txt           # NCBI доступ
-├── gene_protein_report.txt    # Пример отчета
-├── pubmed_raw_data.txt        # Сырые данные
-└── README.md                  # Документация
+├── ncbi_agent.py              # Core Agent Logic
+├── secret.txt                 # LLM API Key
+├── NCBI_API_KEY.txt           # NCBI Access Credentials
+├── gene_protein_report.txt    # Sample Analysis Output
+├── pubmed_raw_data.txt        # Raw Literature Data
+└── README.md                  # Documentation
 ```
 
-## 🎪 Особенности для хакатона
+## 🧪 Hackathon & Scientific Features
 
-### 🚀 Агрессивный NCBI протокол
-- Maximum data extraction — все поля, все фичи  
-- Error resilience — устойчивость к сбоям API  
-- Token conservation — оптимизация использования LLM  
-- Batch processing — эффективная обработка  
+### 🚀 High-Throughput NCBI Protocol
+- **Maximum Data Extraction:** Grabs every available feature and annotation.
+- **Resilience:** Built to survive API timeouts and malformed responses.
+- **Token Conservation:** Optimized prompt engineering for large-scale data.
 
-### 🧪 Фокус на protein engineering
-- Sequence modifications — мутации, замены, делеции  
-- Functional changes — влияние на функцию белка  
-- Aging associations — связь со старением  
-- Engineering insights — направления для модификаций  
+### 🔬 Protein Engineering Focus
+- **Sequence Modifications:** Analysis of mutations, substitutions, and deletions.
+- **Functional Impact:** Insights into how changes affect protein function.
+- **Longevity Research:** Specialized filtering for aging-associated biomarkers.
+- **Engineering Insights:** Suggests potential directions for protein modification.
 
-### 🔬 Научная строгость
-- Anti-hallucination — только факты из абстрактов  
-- PMID citations — каждая ссылка на статью  
-- Experimental evidence — приоритет экспериментальным данным  
-- Precision focus — конкретные позиции и изменения
+### 🛡️ Scientific Rigor
+- **Verification:** Only facts extracted from abstracts; PMID citations included for every claim.
+- **Experimental Priority:** Weights results based on experimental evidence vs. computational predictions.
+- **Precision Focus:** Highlights specific amino acid positions and molecular changes.
 
-## 🙏 Благодарности
+## 🙏 Acknowledgements
 
-- Компоненты MCP сервера модифицированы на основе [hamzameer/ncbi-mcp-server](https://github.com/hamzameer/ncbi-mcp-server)
-- Использует [Model Context Protocol](https://github.com/modelcontextprotocol) для интеграции инструментов
+- MCP server components modified from [hamzameer/ncbi-mcp-server](https://github.com/hamzameer/ncbi-mcp-server).
+- Powered by the [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) for tool orchestration.
